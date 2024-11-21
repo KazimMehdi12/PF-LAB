@@ -1,1 +1,264 @@
+//Menu of Restaurant 1
+#include<stdio.h>
+void Menu();
+void BurgerMenu();
+void BarBQMenu();
+void PizzaMenu();
+void RollMenu();
+void JuiceMenu();
+void IceCreamMenu();
 
+float totalPrice = 0;
+
+int main(){
+    int choice;
+
+    while(1){
+        Menu();
+        printf("\nEnter your choice : ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                BurgerMenu();
+                break;
+            case 2:
+                BarBQMenu();
+                break;
+            case 3:
+                PizzaMenu();
+                break;
+            case 4:
+                RollMenu();
+                break;
+            case 5:
+                JuiceMenu();
+                break;
+            case 6:
+                IceCreamMenu();
+                break;
+            case 7:
+                printf("\nTotal Order Prize : %.2f\n", totalPrice);
+                return 0;
+            default:
+                printf("Invalid choice - Try Again \n\n\n");
+        } 
+    }
+    return 0;
+}
+
+void Menu() {
+	printf("     ***********************************\n");
+	printf("     *    -------------------------    *\n");
+	printf("     *    WELCOME TO THE RESTAURANT    *\n");
+	printf("     *    -------------------------    *\n");
+	printf("     ***********************************\n\n\n");
+    
+    printf("  ----------- \n");
+    printf("| OUR MENU IS |\n");
+    printf("  ----------- \n");
+    printf("1. Burger\n");
+    printf("2. Bar BQ\n");
+    printf("3. Pizza \n");
+    printf("4. Roll \n");
+    printf("5. Juice\n");
+    printf("6. Ice Cream\n");
+    printf("7. Exit \n");
+}
+
+void selectItem(const char* itemName, float pricePerUnit) {
+    int quantity;
+    printf("Enter quantity for %s: ", itemName);
+    scanf("%d", &quantity);
+    if (quantity > 0) {
+        float itemTotal = quantity * pricePerUnit;
+        totalPrice += itemTotal;
+        printf("YOUR TOTAL BILL IS : %.2f \n\n\n",itemTotal);
+    } else {
+        printf("Invalid quantity \n");
+    }
+}
+
+void BurgerMenu() {
+    int choice;
+    printf("BURGER MENU :\n");
+    printf("\n");
+    printf("1. Zinger Burger - 450 \n");
+    printf("2. Chicken Burger - 400 \n");
+    printf("3. Cheese Burger - 370 \n");
+    printf("4. Veggie Burger - 350 \n");
+    printf("5. Back to Main Menu \n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Zinger Burger", 450);
+            break;
+        case 2:
+            selectItem("Chicken Burger", 400);
+            break;
+        case 3:
+            selectItem("Cheese Burger", 370);
+            break;
+        case 4:
+            selectItem("Veggie Burger", 350);
+            break;
+        case 5:
+            return;
+        default:
+            printf("Invalid choice.\n");
+    }
+}
+
+void BarBQMenu() {
+    int choice;
+    printf("BAR BQ MENU :\n");
+    printf("\n");
+    printf("1. Chicken Tikka - 540 \n");
+    printf("2. Beef Kebab - 500 \n");
+    printf("3. Fried Fish - 1200 \n");
+    printf("4. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Chicken Tikka", 540);
+            break;
+        case 2:
+            selectItem("Beef Kebab", 500);
+            break;
+        case 3:
+            selectItem("Fried Fish", 1200);
+            break;
+        case 4:
+            return;
+        default:
+            printf("Invalid choice \n");
+    }
+}
+
+void PizzaMenu() {
+    int choice;
+    printf("PIZZA MENU :\n");
+    printf("\n");
+    printf("1. Chicken Fatjita - 1200 \n");
+    printf("2. Chicken Tikka  - 1100 \n");
+    printf("3. BBQ Chicken - 1150 \n");
+    printf("4. Achari - 1000 \n");
+    printf("5. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Chicken Fatjita Pizza", 1200);
+            break;
+        case 2:
+            selectItem("Chicken Tikka Pizza", 1100);
+            break;
+        case 3:
+            selectItem("BBQ Chicken Pizza", 1150);
+            break;
+        case 4:
+            selectItem("Achari Pizza", 1000);
+            break;
+        case 5:
+            return;
+        default:
+            printf("Invalid choice \n");
+    }
+}
+
+void RollMenu() {
+    int choice;
+    printf("ROLL MENU :\n");
+    printf("*\n");
+    printf("1. Chicken Roll - 170 \n");
+    printf("2. Beef Roll - 350 \n");
+    printf("3. Zinger Roll - 250 \n");
+    printf("4. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Chicken Roll", 170);
+            break;
+        case 2:
+            selectItem("Beef Roll", 350);
+            break;
+        case 3:
+            selectItem("Zinger Roll", 250);
+            break;
+        case 4:
+            return;
+        default:
+            printf("Invalid choice \n");
+    }
+}
+
+void JuiceMenu() {
+    int choice;
+    printf("JUICE MENU :\n");
+    printf("\n");
+    printf("1. Orange Juice - 150 \n");
+    printf("2. Apple Juice - 170 \n");
+    printf("3. Mango Juice - 150 \n");
+    printf("4. Pineapple Juice - 200 \n");
+    printf("5. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Orange Juice", 150);
+            break;
+        case 2:
+            selectItem("Apple Juice", 170);
+            break;
+        case 3:
+            selectItem("Mango Juice", 150);
+            break;
+        case 4:
+            selectItem("Pineapple Juice", 200);
+            break;
+        case 5:
+            return;
+        default:
+            printf("Invalid choice.\n");
+    }
+}
+
+void IceCreamMenu() {
+    int choice;
+    printf("ICE CREAM MENU :\n");
+    printf("\n");
+    printf("1. Chocolate - 150 \n");
+    printf("2. Vanilla - 170 \n");
+    printf("3. Strawberry - 150 \n");
+    printf("4. Mango - 200 \n");
+    printf("5. Back to Main Menu\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            selectItem("Chocolate Ice Cream", 150);
+            break;
+        case 2:
+            selectItem("Vanilla Ice Cream", 170);
+            break;
+        case 3:
+            selectItem("Strawberry Ice Cream", 150);
+            break;
+        case 4:
+            selectItem("Mango Ice Cream", 200);
+            break;
+        case 5:
+            return;
+        default:
+            printf("Invalid choice.\n");
+    }
+}
